@@ -12,19 +12,23 @@ app.use(cors());
 // Este middleware es responsable de analizar el cuerpo de las ... 
 //solicitudes entrantes con el tipo de contenido application/json.
 app.use(express.json());
+
+
 app.get('/', (req, res) => {
     try{
-    console.log( dirname)
-    res.sendFile(path.join( dirname, 'index.html'));
-    } catch (e) {
-        res.status(500).send({'error': 'Internal server error'})
+    // Aca va lo que quiero que funcione.
+    console.log(__dirname)
+    res.sendFile(path.join(__dirname, 'index.html'));
+    } catch(e){
+    // Manejo de errores si falla lo anterior.
+    res.status(500).send({'error': 'Internal server error'})
     }
- });
+    });
 
 // Creamos dos arreglos en donde almacenaremos los mails y los ...
 //usuarios.
-const arreglo usuarios = Array()
-const arreglo mails = Array()
+const arreglo_usuarios = Array()
+const arreglo_mails = Array()
 
 app.post('/', (req, res) => {
 
@@ -33,13 +37,13 @@ app.post('/', (req, res) => {
 const {usuario, email} = req.body;
 
 // Guardamos el usuario en el arreglo de usuarios.
-arrreglo usuarios.push(usuario)
-arreglo mails.push(email)
+arreglo_usuarios.push(usuario)
+arreglo_mails.push(email)
 
 // Imprimimos los arrays para ver si se estan agregando los ...
 //elementos
-console.log(usuarios)
-console.log(mails)
+console.log(arreglo_usuarios)
+console.log(arreglo_mails)
 
 // Devolvemos un codigo de respuesta 201 indicando que el ...
 //recurso fue creado con exito junto con el usuario y el ...

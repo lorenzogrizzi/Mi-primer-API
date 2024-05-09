@@ -50,8 +50,8 @@ console.log(arreglo_mails)
 //mail que fueron recibidos.
 res.status(201).send({usuario,email})
 });
-// Este m t o d o inicia el servidor Express y lo pone a la ...
-//escucha de solicitudes entrantes en un puerto espec fico.
+// Este metodo inicia el servidor Express y lo pone a la ...
+//escucha de solicitudes entrantes en un puerto especifico.
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
